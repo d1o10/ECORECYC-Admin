@@ -1,0 +1,258 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100vh;
+    background-color: #F2F2F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevents scrolling */
+}
+
+
+/* Main container */
+.login-container {
+    display: flex;
+    width: 100vw; /* Makes it responsive */
+    max-width: 100vw; /* Prevents it from being too large */
+    height: 100vh; /* Fixed height */
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+
+    overflow: hidden; /* Prevents unwanted scrolling */
+}
+
+
+
+/* Center the logo at the top */
+.login-logo {
+    width: 180px;
+    height: 180px;
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 15px; /* Increase bottom margin to move other elements lower */
+}
+/* Left Side - Form Container */
+.login-form-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Moves content to the top */
+    padding-top: 20px; /* Adjust spacing */
+}
+
+
+.login-title {
+    text-align: center; /* Center align the text */
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom:10px; /* Add spacing between text and box */
+    width: 100%; /* Ensure it stretches across */
+}
+
+#enter-details{
+    text-align: center;
+    font-size: 16px;
+    color: #766F6F;
+    margin-bottom: 5px;
+}
+
+
+/* The actual form box */
+.login-box {
+    width: 560px; /* Prevents it from being too small */
+    padding: 25px;
+    background-color: #F0E8D6;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    
+}
+
+
+/* Form title */
+.login-box h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Form inputs with elevation */
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #5FBB6E; /* Green border */
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none; /* Removes default browser outline */
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+
+    /* Elevation effect */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* More elevation on focus */
+.login-box input:focus {
+    border-color: #4CA75A; /* Slightly darker green */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+    
+}
+
+.input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 12px 12px 12px 40px; /* Left padding for icon space */
+    border: 2px solid #5FBB6E;
+    border-radius: 5px;
+    font-size: 16px;
+    
+    background-color: white;
+   
+}
+
+.input-wrapper input:focus {
+    border-color: #5FBB6E;
+    outline: none;
+}
+
+.input-wrapper:focus-within .icon {
+    color: #1E3050; /* Keep the icon visible and change color if needed */
+}
+
+.input-wrapper .icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #1E3050;
+}
+
+
+.input-wrapper:focus-within .eye-icon {
+    color: #1E3050; /* Keep the icon visible and change color if needed */
+}
+
+.input-wrapper .eye-icon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #1E3050;
+}
+
+
+.toggle-password {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+
+.remember-forgot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures both items stay on one line */
+    width: 100%;
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+  
+  .remember-me {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between checkbox and text */
+    white-space: nowrap; /* Prevents text from wrapping */
+    cursor: pointer;
+    margin-left: 5px;
+    accent-color: #09772A;
+  }
+  
+  .remember-me input {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .forgot-password {
+    color: black; /* Green theme */
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    margin-right: 10px;
+  }
+  
+  .forgot-password:hover {
+    color: #09772A; /* Darker green on hover */
+    text-decoration: none;
+  }
+  
+
+/* Button styles */
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0E983D;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.login-box button:hover {
+    background-color: #0C7D32;
+}
+
+/* Right Side - Image */
+.login-image-container {
+    width: 50%;
+    background: url('../assets/recycling.jpg') no-repeat center center;
+    background-size: cover;
+}
+
+/* 📌 RESPONSIVENESS: Keep layout intact when resizing */
+@media screen and (max-width: 1100px) {
+    .login-container {
+        width: 90vw; /* Adjust width to fit smaller screens */
+        height: 450px; /* Reduce height */
+    }
+    
+    .login-box {
+        width: 280px; /* Reduce box size slightly */
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .login-container {
+        width: 95vw; /* Further adjust width */
+        height: 400px;
+    }
+    
+    .login-box {
+        width: 260px; /* Prevents it from being too large */
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .login-container {
+        width: 98vw; /* Near full width */
+        height: 350px;
+    }
+
+    .login-box {
+        width: 240px; /* Keeps box small */
+    }
+}
