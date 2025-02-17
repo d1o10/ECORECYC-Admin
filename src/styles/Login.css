@@ -1,3 +1,4 @@
+
 /* Global Reset */
 * {
     margin: 0;
@@ -21,7 +22,7 @@ html, body {
     display: flex;
     width: 70vw; /* Makes it responsive */
     max-width: 100vw; /* Prevents it from being too large */
-    height: 70vh; /* Fixed height */
+    height: 80vh; /* Fixed height */
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
@@ -45,7 +46,7 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start; /* Moves content to the top */
-    padding-top: 20px; /* Adjust spacing */
+    padding-top: 30px; /* Adjust spacing */
 }
 
 
@@ -73,7 +74,7 @@ html, body {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
-    
+    margin-top: 20px;
 }
 
 
@@ -115,7 +116,7 @@ html, body {
 .input-wrapper input {
     width: 100%;
     padding: 12px 12px 12px 40px; /* Left padding for icon space */
-    border: 2px solid #5FBB6E;
+    border: 1px solid #5FBB6E;
     border-radius: 5px;
     font-size: 16px;
     

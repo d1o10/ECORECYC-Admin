@@ -1,0 +1,133 @@
+* {
+    font-family: monospace;
+  }
+  
+  /* Content Area */
+  .content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  
+ 
+  .profile-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-link {
+    display: flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .profile-icon {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .profile-name {
+    font-weight: bold;
+  }
+  
+  /* Announcement Box */
+  .white-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+  }
+  
+  .grey-box p {
+    margin-bottom: 20px;
+  }
+  
+  /* Input Styles */
+  .announcement-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 35px;
+    height: 40px;
+  }
+
+   /* Input Styles */
+   .announcement-wrapper2 {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 35px;
+    height: 150px;
+  }
+
+  
+  .announcement-wrapper .icon {
+    color: #2c3e50;
+    margin-right: 10px;
+  }
+  
+  .announcement-wrapper input,
+  .announcement-wrapper textarea {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+    padding: 5px;
+  }
+  
+  .announcement-wrapper2 input,
+  .announcement-wrapper2 textarea {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 16px;
+    padding: 5px;
+  }
+  
+  /* Radio Button Styles */
+  .recipient-selection {
+    margin-bottom: 15px;
+  }
+  
+  .radio-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .radio-group label {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .radio-group input {
+    margin-right: 10px;
+  }
+  
+  /* Submit Button */
+  button {
+    background-color: #0E983D;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: #0C7D32;
+  }
+  
