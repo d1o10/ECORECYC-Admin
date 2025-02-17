@@ -19,13 +19,12 @@ html, body {
 /* Main container */
 .login-container {
     display: flex;
-    width: 100vw; /* Makes it responsive */
+    width: 70vw; /* Makes it responsive */
     max-width: 100vw; /* Prevents it from being too large */
-    height: 100vh; /* Fixed height */
+    height: 70vh; /* Fixed height */
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
-
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
     overflow: hidden; /* Prevents unwanted scrolling */
 }
 
@@ -33,10 +32,10 @@ html, body {
 
 /* Center the logo at the top */
 .login-logo {
-    width: 180px;
-    height: 180px;
+    width: 100px;
+    height: 100px;
     display: block;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 15px; /* Increase bottom margin to move other elements lower */
 }
 /* Left Side - Form Container */
@@ -68,11 +67,11 @@ html, body {
 
 /* The actual form box */
 .login-box {
-    width: 560px; /* Prevents it from being too small */
+    width: 400px; /* Prevents it from being too small */
     padding: 25px;
     background-color: #F0E8D6;
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
     
 }

@@ -1,18 +1,224 @@
+/* Ensure full-screen layout */
 .dashboard-container {
-    background-color: #f0f0f0;
-    padding: 20px;
-    text-align: center;
-  }
+  display: flex;
+  height: 100vh; /* Full viewport height */
+  width: 100vw;  /* Full viewport width */
+  overflow: hidden; /* Prevent horizontal scrolling */
+}
+/* Ensure header remains fixed */
+.header {
+  display: flex;
+  justify-content: space-between; /* Keeps title and profile at opposite ends */
+  align-items: center;
+  position: fixed; /* Fix header at the top */
+  top: 0;
+  left: 280px; /* Align with the sidebar */
+  right: 0;
+  background-color: #ecf0f1; /* Match background */
+  padding: 20px;
+  z-index: 1000; /* Keep it above other elements */
+  height: 60px; /* Set a fixed height */
   
-  .test-button {
-    background-color: blue;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
+}
+
+.header h1{
+  color: #0E983D;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 25px;
+}
+
+
+.profile-section {
+  display: flex;
+  align-items: center;
+}
+
+.profile-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #333333; /* Adjust text color */
+}
+
+.profile-icon {
+  font-size: 24px; /* Adjust size of profile icon */
+  margin-right: 10px;
+}
+
+.profile-name {
+  font-size: 16px; /* Adjust font size */
+
+}
+
+
+
+
+/* Sidebar styles */
+.sidebar {
+  width: 280px;
+  background-color: #F0E8D6;
+  color: black;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the items horizontally */
+  height: 100%; /* Ensure sidebar takes full height of the screen */
   }
+
+/* Main content area */
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #ecf0f1;
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: calc(100vh - 60px); /* Adjust height to account for the fixed header */
+  margin-top: 60px; /* Push content below the fixed header */
+}
+
+.logo {
+  width: 180px;
+  height: 70px;
+  margin-bottom: 15px;
+  display: block; /* Increase bottom margin to move other elements lower */
+}
+
+.sidebar ul {
+  list-style:none;
+  padding: 0;
+  width: 100%; /* Ensure it takes the full width */
+}
+
+.sidebar ul li {
+  margin: 40px 0;
+}
+
+.sidebar ul li:last-child {
+  margin-top: 240px; /* Push the last item (logout) to the bottom */
+
+}
+
+.sidebar ul li a {
+  color: black;
+  text-decoration: none;
+  font-size: 17px;
+  display: flex; /* Use flexbox for better alignment */
+  align-items: center; /* Vertically center the items */
+  padding: 10px 20px; /* Increase horizontal padding to make hover background wider */
+  border-radius: 5px;
+  position: relative; /* For positioning the pseudo-element */
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  transition-duration: 0.3s;
+}
+
+.sidebar ul li a:hover {
+  background-color: #0E983D;
+  color: white;
+}
+
+.sidebar ul li a::before {
+  content: ''; /* Required for the pseudo-element */
+  position: absolute;
+  top: 0;
+  left: -20px; /* Extend the background to the left */
+  right: -20px; /* Extend the background to the right */
+  bottom: 0;
+  background-color: #0E983D; /* Same color as hover */
+  border-radius: 5px;
+  z-index: -1; /* Place it behind the text */
   
-  .test-button:hover {
-    background-color: darkblue;
-  }
+}
+
+.sidebar ul li a:hover .icon {
+  color: white; /* Icon color on hover */
+}
+
+/* Icons */
+.icon {
+  margin-right: 25px; /* Adds space between the icon and text */
+  font-size: 20px;
+  color:  #333333;
   
+
+}
+
+.icon:hover {
+  color: white; /* Even darker grey when hovered */
+}
+/* Main content area */
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #ecf0f1;
+}
+
+
+/* Ensure the stats section allows horizontal scrolling */
+.dashboard-stats {
+  display: flex;
+  gap: 15px;
+  margin-top: -10px;
+  position: fixed;
+  left: 280px; /* Align with sidebar */
+  right: 0;
+  background-color: #ecf0f1; /* Match content background */
+  padding: 10px 20px; /* Adjust padding for better spacing */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: normal; /* Allow text wrapping inside stat cards */}
+
+
+
+/* Ensure stat cards remain in a row */
+.stat-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px; /* Make the cards wider */
+  min-width: 290px; /* Ensure they don’t shrink */
+  height: auto;
+  flex: 0 0 auto; /* Prevents shrinking and ensures cards stay in a row */
+  word-wrap: break-word; /* Break long words */
+  overflow: hidden; /* Hide overflowing text */
+}
+
+
+
+
+.stat-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.stat-value {
+  font-size: 20px;
+  font-weight: bold;
+  color: #0E983D; /* Or any color that fits your branding */
+}
+
+
+.stat-description{
+  font-size: 12px;
+  color: #6C6C6C;
+  margin-top: 15px;
+}
+
+
+.stat-chart {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50 ;
+}
+
+.stat-chart canvas {
+  width: 100%; /* Makes the canvas fill the available width */
+  height: auto; /* Adjust height based on the width */
+}
