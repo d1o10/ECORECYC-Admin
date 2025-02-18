@@ -1,0 +1,217 @@
+.content-manage-users {
+    flex-grow: 1;
+    padding: 15px; /* Adjust padding as needed */
+    margin: 0; /* Ensure no extra margins */
+    position: relative; /* Keeps elements inside */
+  }
+
+  
+  .content-manage-users h1{
+    margin-top: 5px;
+    color: #0E983D;
+  }
+  
+  
+  
+  .profile-section-manage-users {
+    display: flex;
+    justify-content: flex-end; /* Align profile to the right */
+    margin-bottom: 10px; /* Reduced space below the profile */
+    margin-top: -32px; /* Moved the profile section 20px upwards to align with h1 */
+  margin-right: 5px;
+}
+  
+  .profile-link {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .profile-icon {
+    margin-right: 10px;
+  }
+  
+  .profile-name {
+    font-weight: bold;
+  }
+  
+  
+  /* Container for Buttons and Search Bar in a single line */
+.buttons-search-container {
+    display: flex;
+    justify-content: flex-start; /* Align buttons to the left */
+    align-items: center;
+    width: 100%; /* Take up full width */
+    margin-top: 20px;
+  }
+  
+ /* Styling for buttons */
+.buttons-search-container .btn {
+    color: black; /* Text color */
+    padding: 5px 10px; /* Adjust padding */
+    border: none; /* Remove border */
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 8px; /* Space between the buttons */
+    width: auto; /* Set width to auto for adaptive button size */
+    background-color: transparent; /* Remove background */
+    display: flex; /* Enable flexbox layout */
+    align-items: center; /* Vertically align the icon and text */
+    transition: all 0.3s ease; /* Smooth transition effect */
+  
+}
+  
+  /* Styling for icons inside buttons */
+  .buttons-search-container .btn .icon {
+    margin-right: 5px; /* Space between the icon and the text */
+  }
+  
+  /* Hover effect */
+  .buttons-search-container .btn:hover {
+    transform: translateY(-3px); /* Elevate the button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+  }
+  
+
+  /* Styling for icons inside buttons */
+.buttons-search-container .btn .icon {
+    margin-right: 5px; /* Space between the icon and the text */
+  }
+  
+  
+  .buttons-search-container .btn :hover {
+   background-color: antiquewhite; /* Space between the icon and the text */
+  }
+
+  /* Styling for the input wrapper to ensure search bar and icon are aligned */
+  .input-wrapper-manage-users {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Styling for input */
+  .input-wrapper-manage-users input {
+    padding: 10px;
+    width: 300px; /* Adjust the width as needed */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Styling for search icon */
+  .search-icon {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #007BFF;
+  }
+  
+  .search-icon:hover {
+    color: #0056b3;
+  }
+  
+  /* Ensure search bar is aligned to the right */
+  .search-form {
+    margin-left: auto; /* Push the search form to the right */
+  }
+
+
+  /* Styling for users' email status section */
+.users-email-status {
+    margin-top: 30px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  
+  /* Header row for the table */
+  .table-header {
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr 2fr;
+    gap: 20px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 15px;
+  }
+  
+  .table-header span {
+    text-align: left;
+  }
+  
+  /* Each user item displayed in a row format */
+  .user-item {
+    display: grid;
+    grid-template-columns: 2fr 3fr 2fr 2fr;
+    gap: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    align-items: center;
+  }
+  
+  .user-item:last-child {
+    border-bottom: none; /* Remove border for the last item */
+  }
+  
+  /* User profile with icon */
+  .user-profile {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-icon {
+    margin-right: 10px; /* Space between icon and name */
+    font-size: 2.0rem; /* Adjust the size as needed */
+
+}
+  
+  .user-email {
+    font-weight: bold;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .status {
+    padding: 5px 10px;
+    border-radius: 3px;
+  }
+  
+  .status.active {
+    background-color: #4CAF50;
+    color: white;
+    width: fit-content;
+  }
+  
+  .status.inactive {
+    background-color: #FF5722;
+    color: white;
+    width: fit-content;
+  }
+  
+  /* View User link */
+  .view-link {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  .view-link:hover {
+    text-decoration: underline;
+  }
+  
+  .delete-icon {
+    cursor: pointer;
+    margin-left: 100px;
+    font-size: 18px;
+    color: red;
+  }
+  
+  .delete-icon:hover {
+    color: darkred;
+  }
+  
+  
+  
