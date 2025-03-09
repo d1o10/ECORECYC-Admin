@@ -1,29 +1,61 @@
-import { useState } from "react";
-import "../styles/Login.css"; // Ensure this is the correct path
+import { useState, useEffect } from "react";
+import "../styles/Login.css";
 import logo from "../assets/ecorecyclogo-admin.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faLock } from "@fortawesome/free-solid-svg-icons";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom"; // Import useNavigate hook
+import { faEnvelope, faLock, faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../firebase";
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-  const navigate = useNavigate(); // Initialize the navigate function
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [loginSuccess, setLoginSuccess] = useState(false);
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  // Check localStorage for remembered credentials on component mount
+  useEffect(() => {
+    const rememberedEmail = localStorage.getItem("rememberedEmail");
+    const rememberedPassword = localStorage.getItem("rememberedPassword");
+    if (rememberedEmail) {
+      setEmail(rememberedEmail);
+      setRememberMe(true); // Automatically check "Remember Me" if email exists
+    }
+    if (rememberedPassword) {
+      setPassword(rememberedPassword); // Pre-fill password if it exists
+    }
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Logging in with:", email, password);
-    // Temporarily redirect to the dashboard without authentication logic
-    navigate("/dashboard"); // This will redirect to the dashboard
+    setLoading(true);
+    setError(null);
+
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+      if (rememberMe) {
+        localStorage.setItem("rememberedEmail", email); // Store email if "Remember Me" is checked
+        localStorage.setItem("rememberedPassword", password); // Store password if "Remember Me" is checked
+      } else {
+        localStorage.removeItem("rememberedEmail"); // Remove email if "Remember Me" is unchecked
+        localStorage.removeItem("rememberedPassword"); // Remove password if "Remember Me" is unchecked
+      }
+      setLoginSuccess(true);
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 1000);
+    } catch (err) {
+      setError("Invalid email or password. Please try again.");
+    }
+    setLoading(false);
   };
 
   return (
     <div className="login-container">
-      {/* Left Side - Form */}
       <div className="login-form-container">
         <img src={logo} alt="Logo" className="login-logo" />
 
@@ -31,8 +63,9 @@ const Login = () => {
           <h2 className="login-title">Welcome Admin!</h2>
           <p id="enter-details">Please enter your login details</p>
 
+          {error && <p className="error-message">{error}</p>}
+
           <form onSubmit={handleSubmit}>
-            {/* Email Input */}
             <div className="input-wrapper">
               <FontAwesomeIcon icon={faEnvelope} className="icon" />
               <input
@@ -40,28 +73,27 @@ const Login = () => {
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                /*required */  /* put this back later */
+                required
               />
             </div>
 
             <div className="input-wrapper">
               <FontAwesomeIcon icon={faLock} className="icon" />
               <input
-                type={showPassword ? "text" : "password"} // Toggle visibility correctly
+                type={showPassword ? "text" : "password"}
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                /*required */  /* put this back later */
+                required
               />
               <FontAwesomeIcon
-                icon={showPassword ? faEye : faEyeSlash} // Fix: Swap icons correctly
+                icon={showPassword ? faEye : faEyeSlash}
                 className="eye-icon"
-                onClick={() => setShowPassword(!showPassword)} // Toggle visibility
+                onClick={() => setShowPassword(!showPassword)}
               />
             </div>
 
             <div className="remember-forgot">
-              {/* Remember Me Checkbox */}
               <label htmlFor="rememberMe" className="remember-me">
                 <input
                   type="checkbox"
@@ -69,17 +101,23 @@ const Login = () => {
                   checked={rememberMe}
                   onChange={(e) => setRememberMe(e.target.checked)}
                 />
-                <span>Remember Me</span> {/* Wrap text in <span> to ensure proper alignment */}
+                <span>Remember Me</span>
               </label>
               <a href="/forgot-password" className="forgot-password">Forgot Password?</a>
             </div>
-            <button type="submit">Login</button>
+
+            <button type="submit" disabled={loading}>
+              {loading ? (
+                <div className="spinner"></div> // Show spinner when loading
+              ) : (
+                "Login" // Show "Login" text when not loading
+              )}
+            </button>
           </form>
         </div>
       </div>
-
-      {/* Right Side - Image */}
       <div className="login-image-container"></div>
+      {loginSuccess && <div className="login-success-message">Logged in successfully</div>}
     </div>
   );
 };
